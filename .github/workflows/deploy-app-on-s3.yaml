@@ -1,8 +1,8 @@
 name: deploy-app-on-s3
 on:
-  pull_request:
-    branches: [master]
-    types: [closed]
+  push:
+    branches:
+      - master
 jobs:
   deploy:
     runs-on: ubuntu-latest
