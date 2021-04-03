@@ -15,7 +15,11 @@
 		{
 			word: "point",
 			week: 3
-		}	
+		},
+		{
+			word: "watches",
+			week: 4
+		}
 	]
 	function submitTest()
 	{
