@@ -1,5 +1,5 @@
 <script>
-	export let word;
+    export let word;
     export let week;
     export let id;
 </script>
