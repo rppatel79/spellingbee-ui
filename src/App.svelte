@@ -9,15 +9,55 @@
 			week: 2
 		},
 		{
-			word: "word",
-			week: 2
-		},
-		{
 			word: "point",
 			week: 3
 		},
 		{
+			word: "spoil",
+			week: 3
+		},
+		{
+			word: "soil",
+			week: 3
+		},
+		{
+			word: "schools",
+			week: 4
+		},
+		{
+			word: "was",
+			week: 4
+		},
+		{
+			word: "cakes",
+			week: 4
+		},
+		{
+			word: "reaches",
+			week: 4
+		},
+		{
+			word: "wishes",
+			week: 4
+		},
+		{
+			word: "buses",
+			week: 4
+		},
+		{
 			word: "watches",
+			week: 4
+		},
+		{
+			word: "numbers",
+			week: 4
+		},
+		{
+			word: "passes",
+			week: 4
+		},
+		{
+			word: "blocks",
 			week: 4
 		}
 	]
