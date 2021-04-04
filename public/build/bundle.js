@@ -474,14 +474,14 @@ var app = (function () {
     			audio = element("audio");
     			source = element("source");
     			t2 = text("Your browser does not support the audio element.");
-    			add_location(td0, file$1, 7, 4, 87);
-    			if (source.src !== (source_src_value = "audio/" + /*week*/ ctx[1] + "}/" + /*word*/ ctx[0] + ".mp3")) attr_dev(source, "src", source_src_value);
+    			add_location(td0, file$1, 7, 4, 90);
+    			if (source.src !== (source_src_value = "audio/" + /*week*/ ctx[1] + "/" + /*word*/ ctx[0] + ".mp3")) attr_dev(source, "src", source_src_value);
     			attr_dev(source, "type", "audio/mpeg");
-    			add_location(source, file$1, 9, 24, 134);
+    			add_location(source, file$1, 9, 24, 137);
     			audio.controls = true;
-    			add_location(audio, file$1, 9, 8, 118);
-    			add_location(td1, file$1, 8, 4, 105);
-    			add_location(tr, file$1, 6, 0, 78);
+    			add_location(audio, file$1, 9, 8, 121);
+    			add_location(td1, file$1, 8, 4, 108);
+    			add_location(tr, file$1, 6, 0, 81);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -499,7 +499,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			if (dirty & /*id*/ 4) set_data_dev(t0, /*id*/ ctx[2]);
 
-    			if (dirty & /*week, word*/ 3 && source.src !== (source_src_value = "audio/" + /*week*/ ctx[1] + "}/" + /*word*/ ctx[0] + ".mp3")) {
+    			if (dirty & /*week, word*/ 3 && source.src !== (source_src_value = "audio/" + /*week*/ ctx[1] + "/" + /*word*/ ctx[0] + ".mp3")) {
     				attr_dev(source, "src", source_src_value);
     			}
     		},
@@ -617,7 +617,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (47:1) {:else}
+    // (91:1) {:else}
     function create_else_block(ctx) {
     	let form;
     	let table;
@@ -654,15 +654,16 @@ var app = (function () {
     			t1 = space();
     			p = element("p");
     			attr_dev(table, "border", "1");
-    			add_location(table, file, 48, 3, 874);
+    			add_location(table, file, 92, 3, 1314);
     			attr_dev(input, "type", "button");
     			input.value = "I'm Done!";
-    			add_location(input, file, 54, 3, 1123);
+    			add_location(input, file, 98, 3, 1563);
     			attr_dev(p, "id", "score");
     			attr_dev(p, "value", "");
-    			add_location(p, file, 56, 3, 1192);
+    			add_location(p, file, 100, 3, 1632);
     			attr_dev(form, "id", "questionsForm");
-    			add_location(form, file, 47, 2, 845);
+    			attr_dev(form, "method", "POST");
+    			add_location(form, file, 91, 2, 1271);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, form, anchor);
@@ -742,14 +743,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(47:1) {:else}",
+    		source: "(91:1) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (45:1) {#if Question.length == 0}
+    // (89:1) {#if Question.length == 0}
     function create_if_block(ctx) {
     	let p;
 
@@ -757,7 +758,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			p.textContent = "No questions";
-    			add_location(p, file, 45, 2, 814);
+    			add_location(p, file, 89, 2, 1240);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -774,14 +775,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(45:1) {#if Question.length == 0}",
+    		source: "(89:1) {#if Question.length == 0}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (50:4) {#each questions as question, id}
+    // (94:4) {#each questions as question, id}
     function create_each_block(ctx) {
     	let question;
     	let t;
@@ -808,9 +809,9 @@ var app = (function () {
     			attr_dev(input, "colspan", "2");
     			attr_dev(input, "id", /*question*/ ctx[1].word);
     			input.value = "";
-    			add_location(input, file, 51, 21, 1021);
+    			add_location(input, file, 95, 21, 1461);
     			attr_dev(td, "colspan", "2");
-    			add_location(td, file, 51, 5, 1005);
+    			add_location(td, file, 95, 5, 1445);
     		},
     		m: function mount(target, anchor) {
     			mount_component(question, target, anchor);
@@ -840,7 +841,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(50:4) {#each questions as question, id}",
+    		source: "(94:4) {#each questions as question, id}",
     		ctx
     	});
 
@@ -872,7 +873,7 @@ var app = (function () {
     			t = space();
     			div = element("div");
     			if_block.c();
-    			add_location(div, file, 43, 0, 778);
+    			add_location(div, file, 87, 0, 1204);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -940,8 +941,19 @@ var app = (function () {
 
     	let questions = [
     		{ word: "annoy", week: 2 },
-    		{ word: "word", week: 2 },
-    		{ word: "point", week: 3 }
+    		{ word: "point", week: 3 },
+    		{ word: "spoil", week: 3 },
+    		{ word: "soil", week: 3 },
+    		{ word: "schools", week: 4 },
+    		{ word: "was", week: 4 },
+    		{ word: "cakes", week: 4 },
+    		{ word: "reaches", week: 4 },
+    		{ word: "wishes", week: 4 },
+    		{ word: "buses", week: 4 },
+    		{ word: "watches", week: 4 },
+    		{ word: "numbers", week: 4 },
+    		{ word: "passes", week: 4 },
+    		{ word: "blocks", week: 4 }
     	];
 
     	const writable_props = [];
