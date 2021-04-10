@@ -25,7 +25,7 @@
 			week: 5
 		},
 		{
-			word: "sounds",
+			word: "sound",
 			week: 5
 		},
 		{
