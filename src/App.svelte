@@ -5,40 +5,40 @@
 	let questions =
 	[
 		{
-			word: "annoy",
-			week: 2
+			word: "out",
+			week: 5
 		},
 		{
-			word: "point",
-			week: 3
+			word: "now",
+			week: 5
 		},
 		{
-			word: "spoil",
-			week: 3
+			word: "flower",
+			week: 5
 		},
 		{
-			word: "soil",
-			week: 3
+			word: "clown",
+			week: 5
 		},
 		{
-			word: "schools",
-			week: 4
+			word: "house",
+			week: 5
 		},
 		{
-			word: "was",
-			week: 4
+			word: "sounds",
+			week: 5
 		},
 		{
-			word: "cakes",
-			week: 4
+			word: "crowd",
+			week: 5
 		},
 		{
-			word: "reaches",
-			week: 4
+			word: "found",
+			week: 5
 		},
 		{
-			word: "wishes",
-			week: 4
+			word: "ground",
+			week: 5
 		},
 		{
 			word: "buses",
