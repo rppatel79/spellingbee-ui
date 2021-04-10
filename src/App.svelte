@@ -70,6 +70,8 @@
 		for (var i = 0, element; element = elements[i++];) {
 			if (element.id === element.value )
 				score = score+1;
+			else
+                document.getElementById("id").style.color = "red"
 		}
 
 		let numQuestion = elements.length -1
