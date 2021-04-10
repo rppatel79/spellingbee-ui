@@ -71,7 +71,7 @@
 			if (element.id === element.value )
 				score = score+1;
 			else
-                document.getElementById("id").style.color = "red"
+                document.getElementById(element.id).style.color = "red"
 		}
 
 		let numQuestion = elements.length -1
