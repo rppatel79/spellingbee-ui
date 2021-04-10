@@ -71,7 +71,7 @@
 			if (element.id === element.value )
 				score = score+1;
 			else
-                document.getElementById(element.id).style.color = "red"
+                element.style = "background-color:red"
 		}
 
 		let numQuestion = elements.length -1
@@ -95,7 +95,7 @@
 			<table border="1">
 				{#each questions as question, id}
 					<Question word={question.word} week={question.week} id={id+1}/>
-					<td colspan="2"><input autocomplete="off" colspan="2" id="{question.word}" value=""/></td>
+					<td colspan="2"><input type="text" autocomplete="off" colspan="2" id="{question.word}" value="" style=""/></td>
 				{/each}
 			</table>
 			<input type="button" value="I'm Done!" on:click="{submitTest}"/>
