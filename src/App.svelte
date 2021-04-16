@@ -2,65 +2,33 @@
 	import NavBar from "./NavBar.svelte"
 	import Question from "./Question.svelte"
 
-	let questions =
-	[
-		{
-			word: "out",
-			week: 5
-		},
-		{
-			word: "now",
-			week: 5
-		},
-		{
-			word: "flower",
-			week: 5
-		},
-		{
-			word: "clown",
-			week: 5
-		},
-		{
-			word: "house",
-			week: 5
-		},
-		{
-			word: "sound",
-			week: 5
-		},
-		{
-			word: "crowd",
-			week: 5
-		},
-		{
-			word: "found",
-			week: 5
-		},
-		{
-			word: "ground",
-			week: 5
-		},
-		{
-			word: "buses",
-			week: 4
-		},
-		{
-			word: "watches",
-			week: 4
-		},
-		{
-			word: "numbers",
-			week: 4
-		},
-		{
-			word: "passes",
-			week: 4
-		},
-		{
-			word: "blocks",
-			week: 4
-		}
-	]
+    const questionGeneratorUrl ="https://hsbva3hv4b.execute-api.us-west-2.amazonaws.com/default/questionGeneratorFunction"
+
+    let loading=true;
+    let questions= onLoad();
+
+    async function onLoad() {
+        try
+        {
+            console.log('onLoad');
+            const questionGeneratorUrl ="https://hsbva3hv4b.execute-api.us-west-2.amazonaws.com/default/questionGeneratorFunction"
+            // Call an authenication microservice to handle the authentication.
+            const response = await fetch(questionGeneratorUrl,
+                {
+                    method: 'GET',
+                }
+            );
+            let responseVal= await response;
+            questions=  await responseVal.json();
+        }
+        catch(err) {
+            console.error(err);
+        }
+        finally{
+            loading=false;
+        }
+    }
+
 	function submitTest()
 	{
 		var elements = document.getElementById("questionsForm").elements;
@@ -68,10 +36,16 @@
 		let score =0
 		
 		for (var i = 0, element; element = elements[i++];) {
-			if (element.id === element.value )
-				score = score+1;
-			else
-                element.style = "background-color:red"
+			if (element.id != "buttonId")
+			{
+                if (element.id === element.value )
+                {
+                    score = score+1;
+                    element.style = ""
+                }
+                else
+                    element.style = "background-color:red"
+		    }
 		}
 
 		let numQuestion = elements.length -1
@@ -88,8 +62,8 @@
 
 <NavBar />
 <div>
-	{#if Question.length == 0}
-		<p>No questions</p>
+	{#if loading }
+		<p>Loading</p>
 	{:else}
 		<form id="questionsForm" method="POST">
 			<table border="1">
@@ -98,7 +72,7 @@
 					<td colspan="2"><input type="text" autocomplete="off" colspan="2" id="{question.word}" value="" style=""/></td>
 				{/each}
 			</table>
-			<input type="button" value="I'm Done!" on:click="{submitTest}"/>
+			<input id="buttonId" type="button" value="I'm Done!" on:click="{submitTest}"/>
 
 			<p id="score" value=""></p>
 		</form>
