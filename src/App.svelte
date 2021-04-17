@@ -11,7 +11,7 @@
         try
         {
             console.log('onLoad');
-            const questionGeneratorUrl ="https://hsbva3hv4b.execute-api.us-west-2.amazonaws.com/default/questionGeneratorFunction"
+            const questionGeneratorUrl ="https://j4czddousl.execute-api.us-east-1.amazonaws.com/default/questionGeneratorFunction"
             // Call an authenication microservice to handle the authentication.
             const response = await fetch(questionGeneratorUrl,
                 {
