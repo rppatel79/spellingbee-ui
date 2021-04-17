@@ -11,7 +11,7 @@
         try
         {
             console.log('onLoad');
-            const questionGeneratorUrl ="https://j4czddousl.execute-api.us-east-1.amazonaws.com/default/questionGeneratorFunction"
+            const questionGeneratorUrl ="https://pyr308hstc.execute-api.us-east-1.amazonaws.com/default/spellingtestQuestionGenerateFunction"
             // Call an authenication microservice to handle the authentication.
             const response = await fetch(questionGeneratorUrl,
                 {
@@ -20,6 +20,7 @@
             );
             let responseVal= await response;
             questions=  await responseVal.json();
+            console.log(questions)
         }
         catch(err) {
             console.error(err);
