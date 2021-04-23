@@ -39,7 +39,7 @@
 		for (var i = 0, element; element = elements[i++];) {
 			if (element.id != "buttonId")
 			{
-                if (element.id === element.value )
+                if (element.id.toUpperCase() === element.value.toUpperCase() )
                 {
                     score = score+1;
                     element.style = ""
