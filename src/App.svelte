@@ -85,6 +85,7 @@
 		}
 
         let allWords ={"words" : wordsArray}
+        console.log(allWords)
         saveResults(allWords)
 
 		let numQuestion = elements.length -1
