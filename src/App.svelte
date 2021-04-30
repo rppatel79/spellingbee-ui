@@ -15,7 +15,7 @@
             // Call an authenication microservice to handle the authentication.
             const response = await fetch(questionGeneratorUrl,
                 {
-                    method: 'GET',
+                    method: 'POST',
                 }
             );
             let responseVal= await response;
@@ -30,24 +30,62 @@
         }
     }
 
+    function saveResults(data)
+    {
+        const url ="https://pjsn8b2l0f.execute-api.us-east-1.amazonaws.com/default/spellingtestSaveResults"
+
+		// request options
+		const options = {
+			method: 'POST',
+			body: JSON.stringify(data)
+			/*,
+			headers: {
+				'content-type': 'application/json'
+			}*/
+		}
+
+		// send post request
+		fetch(url, options)
+			.then(res => res.json())
+			.then(res => console.log(res))
+			.catch(err => console.error(err));
+
+    }
+
 	function submitTest()
 	{
 		var elements = document.getElementById("questionsForm").elements;
 
 		let score =0
-		
-		for (var i = 0, element; element = elements[i++];) {
+
+        var wordsArray =[]
+        for (var i = 0, element; element = elements[i++];) {
 			if (element.id != "buttonId")
 			{
+                var word ={}
+                word['word']=element.id.toUpperCase()
+                word['guess']=element.value.toUpperCase()
+
                 if (element.id.toUpperCase() === element.value.toUpperCase() )
                 {
                     score = score+1;
                     element.style = ""
+
+                    word['correct']='true'
                 }
                 else
+                {
                     element.style = "background-color:red"
+
+                    word['correct']='false'
+                }
+
+                wordsArray[wordsArray.length]=word
 		    }
 		}
+
+        let allWords ={"words" : wordsArray}
+        saveResults(allWords)
 
 		let numQuestion = elements.length -1
 		if (score == numQuestion)
