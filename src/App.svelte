@@ -10,7 +10,6 @@
     async function onLoad() {
         try
         {
-            console.log('onLoad');
             const questionGeneratorUrl ="https://pyr308hstc.execute-api.us-east-1.amazonaws.com/default/spellingtestQuestionGenerateFunction"
             // Call an authenication microservice to handle the authentication.
             const response = await fetch(questionGeneratorUrl,
@@ -38,10 +37,6 @@
 		const options = {
 			method: 'POST',
 			body: JSON.stringify(data)
-			/*,
-			headers: {
-				'content-type': 'application/json'
-			}*/
 		}
 
 		// send post request
