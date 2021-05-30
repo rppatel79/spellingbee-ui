@@ -1,22 +1,13 @@
-*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
+# SpellingBee UI app
 
----
-
-# svelte app
+This is an app I built to help my son practice spelling, and help me learn [Svelte](https://svelte.dev).
 
 This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
-
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
-
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
-```
 
 *Note that you will need to have [Node.js](https://nodejs.org) installed.*
 
 
-## Get started
+## Svelte - Get started
 
 Install the dependencies...
 
@@ -37,7 +28,7 @@ By default, the server will only respond to requests from localhost. To allow co
 
 If you're using [Visual Studio Code](https://code.visualstudio.com/) we recommend installing the official extension [Svelte for VS Code](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode). If you are using other editors you may need to install a plugin in order to get syntax highlighting and intellisense.
 
-## Building and running in production mode
+## Svelte - Building and running in production mode
 
 To create an optimised version of the app:
 
@@ -48,58 +39,10 @@ npm run build
 You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
 
 
-## Single-page app mode
+## What does the app do?
+The [Svelte](https://svelte.dev) app is the UI to a spelling test.  The app leverages Lambda APIs to build a grid of MP3 and input text fields.
+The user then plays an MP3 of each word, and then spells the word in the input field. When the user is complete, they will POST their response and UI will compute and output their score.
 
-By default, sirv will only respond to requests that match files in `public`. This is to maximise compatibility with static fileservers, allowing you to deploy your app anywhere.
-
-If you're building a single-page app (SPA) with multiple routes, sirv needs to be able to respond to requests for *any* path. You can make it so by editing the `"start"` command in package.json:
-
-```js
-"start": "sirv public --single"
-```
-
-## Using TypeScript
-
-This template comes with a script to set up a TypeScript development environment, you can run it immediately after cloning the template with:
-
-```bash
-node scripts/setupTypeScript.js
-```
-
-Or remove the script via:
-
-```bash
-rm scripts/setupTypeScript.js
-```
-
-## Deploying to the web
-
-### With [Vercel](https://vercel.com)
-
-Install `vercel` if you haven't already:
-
-```bash
-npm install -g vercel
-```
-
-Then, from within your project folder:
-
-```bash
-cd public
-vercel deploy --name my-project
-```
-
-### With [surge](https://surge.sh/)
-
-Install `surge` if you haven't already:
-
-```bash
-npm install -g surge
-```
-
-Then, from within your project folder:
-
-```bash
-npm run build
-surge public my-project.surge.sh
-```
+## Architecture
+This project leverages multiple AWS services.  The Spelling UI (this repo) is deployed on a S3 bucket that is setup as a static website.  It communicates with an API gateway (backed by Lambda/DynamoDb) to get a list of words.
+The MP3 files are pre-created (by an API Gateway, Lambda, and Polly) and stored on S3.
